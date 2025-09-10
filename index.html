@@ -4,6 +4,347 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopEase - Your One-Stop Online Store</title>
+
+    <style>
+        /* General Body & Reset Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h1, h2, h3, h4, h5 {
+            margin-top: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Container for consistent spacing */
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        /* --- Header Section --- */
+        header {
+            background-color: #ffffff;
+            padding: 1rem 0;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+            padding: 1rem 5%;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: #333;
+            margin: 0;
+        }
+
+        header nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            font-weight: 500;
+            color: #555;
+        }
+
+        header .search-bar {
+            display: flex;
+        }
+
+        header .search-bar input {
+            border: 1px solid #ccc;
+            padding: 0.5rem;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+
+        header .search-bar button {
+            border: none;
+            background-color: #007bff;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        /* --- Main Content Sections --- */
+        main section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        main h3 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        /* Hero Banner Section */
+        #hero-banner {
+            background-color: #e9ecef;
+            padding: 80px 20px;
+        }
+
+        #hero-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #hero-banner p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        #hero-banner .shop-now-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+        
+        #hero-banner .shop-now-btn:hover {
+            background-color: #218838;
+            text-decoration: none;
+        }
+
+        /* Grid Layout for Categories & Products */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        /* Categories Section */
+        #featured-categories article {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        #featured-categories article:hover {
+            transform: translateY(-5px);
+        }
+
+        #featured-categories h4 {
+            padding: 1.5rem;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        
+        /* Products Section */
+        #featured-products {
+            background-color: #ffffff;
+        }
+
+        #featured-products article {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        #featured-products article:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        #featured-products h5 {
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        #featured-products p {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin: 0.5rem 0;
+        }
+        
+        #featured-products button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+
+        #featured-products button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Special Offers Section */
+        #special-offers {
+            background-color: #007bff;
+            color: white;
+        }
+
+        #special-offers h3 {
+            color: #f8f9fa;
+        }
+        
+        #special-offers h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        #special-offers .deal-btn {
+            background-color: #fff;
+            color: #007bff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        #special-offers .deal-btn:hover {
+            background-color: #eee;
+            text-decoration: none;
+        }
+
+        /* Newsletter Section */
+        #newsletter form {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap; /* Allows wrapping on small screens */
+        }
+        
+        #newsletter input[type="email"] {
+            padding: 15px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            max-width: 100%;
+        }
+
+        #newsletter button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        
+        #newsletter button:hover {
+            background-color: #218838;
+        }
+
+        /* --- Footer Section --- */
+        footer {
+            background-color: #343a40;
+            color: #f8f9fa;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: left;
+        }
+
+        footer h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: #adb5bd;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+        
+        .footer-copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #495057;
+            color: #adb5bd;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            #hero-banner h2 {
+                font-size: 2rem;
+            }
+
+            main h3 {
+                font-size: 1.8rem;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -21,7 +362,7 @@
             </ul>
         </nav>
 
-        <div>
+        <div class="search-bar">
             <input type="search" name="search" placeholder="Search for products...">
             <button type="submit">Search</button>
         </div>
@@ -30,106 +371,116 @@
     <main>
 
         <section id="hero-banner">
-            <h2>Welcome to ShopEase – Your One-Stop Online Store</h2>
-            <p>Find the best products at the best prices, delivered to your doorstep.</p>
-            <a href="#">Shop Now</a>
+            <div class="container">
+                <h2>Welcome to ShopEase – Your One-Stop Online Store</h2>
+                <p>Find the best products at the best prices, delivered to your doorstep.</p>
+                <a href="#" class="shop-now-btn">Shop Now</a>
+            </div>
         </section>
 
         <section id="featured-categories">
-            <h3>Featured Categories</h3>
-            <div>
-                <article>
-                    <img src="https://via.placeholder.com/300x200" alt="Electronics Category">
-                    <h4>Electronics</h4>
-                </article>
-
-                <article>
-                    <img src="https://via.placeholder.com/300x200" alt="Fashion Category">
-                    <h4>Fashion</h4>
-                </article>
-
-                <article>
-                    <img src="https://via.placeholder.com/300x200" alt="Home Appliances Category">
-                    <h4>Home Appliances</h4>
-                </article>
-
-                <article>
-                    <img src="https://via.placeholder.com/300x200" alt="Beauty Products Category">
-                    <h4>Beauty</h4>
-                </article>
+            <div class="container">
+                <h3>Featured Categories</h3>
+                <div class="grid-container">
+                    <article>
+                        <img src="https://via.placeholder.com/300x200" alt="Electronics Category">
+                        <h4>Electronics</h4>
+                    </article>
+                    <article>
+                        <img src="https://via.placeholder.com/300x200" alt="Fashion Category">
+                        <h4>Fashion</h4>
+                    </article>
+                    <article>
+                        <img src="https://via.placeholder.com/300x200" alt="Home Appliances Category">
+                        <h4>Home Appliances</h4>
+                    </article>
+                    <article>
+                        <img src="https://via.placeholder.com/300x200" alt="Beauty Products Category">
+                        <h4>Beauty</h4>
+                    </article>
+                </div>
             </div>
         </section>
 
         <section id="featured-products">
-            <h3>Featured Products</h3>
-            <div>
-                <article>
-                    <img src="https://via.placeholder.com/250" alt="Wireless Headphones">
-                    <h5>Wireless Headphones</h5>
-                    <p>Price: $99.99</p>
-                    <button>Add to Cart</button>
-                </article>
-
-                <article>
-                    <img src="https://via.placeholder.com/250" alt="Modern T-Shirt">
-                    <h5>Modern T-Shirt</h5>
-                    <p>Price: $24.50</p>
-                    <button>Add to Cart</button>
-                </article>
-
-                <article>
-                    <img src="https://via.placeholder.com/250" alt="Smart Coffee Maker">
-                    <h5>Smart Coffee Maker</h5>
-                    <p>Price: $75.00</p>
-                    <button>Add to Cart</button>
-                </article>
-
-                <article>
-                    <img src="https://via.placeholder.com/250" alt="Organic Face Cream">
-                    <h5>Organic Face Cream</h5>
-                    <p>Price: $49.99</p>
-                    <button>Add to Cart</button>
-                </article>
+            <div class="container">
+                <h3>Featured Products</h3>
+                <div class="grid-container">
+                    <article>
+                        <img src="https://via.placeholder.com/250" alt="Wireless Headphones">
+                        <h5>Wireless Headphones</h5>
+                        <p>$99.99</p>
+                        <button>Add to Cart</button>
+                    </article>
+                    <article>
+                        <img src="https://via.placeholder.com/250" alt="Modern T-Shirt">
+                        <h5>Modern T-Shirt</h5>
+                        <p>$24.50</p>
+                        <button>Add to Cart</button>
+                    </article>
+                    <article>
+                        <img src="https://via.placeholder.com/250" alt="Smart Coffee Maker">
+                        <h5>Smart Coffee Maker</h5>
+                        <p>$75.00</p>
+                        <button>Add to Cart</button>
+                    </article>
+                    <article>
+                        <img src="https://via.placeholder.com/250" alt="Organic Face Cream">
+                        <h5>Organic Face Cream</h5>
+                        <p>$49.99</p>
+                        <button>Add to Cart</button>
+                    </article>
+                </div>
             </div>
         </section>
 
         <section id="special-offers">
-            <h3>Deal of the Day</h3>
-            <h2>50% OFF on All Electronics!</h2>
-            <p>Don't miss out on this limited-time offer. Upgrade your gadgets today.</p>
-            <a href="#">View Deals</a>
+            <div class="container">
+                <h3>Deal of the Day</h3>
+                <h2>50% OFF on All Electronics!</h2>
+                <p>Don't miss out on this limited-time offer. Upgrade your gadgets today.</p>
+                <a href="#" class="deal-btn">View Deals</a>
+            </div>
         </section>
 
         <section id="newsletter">
-            <h3>Subscribe to Our Newsletter</h3>
-            <p>Get the latest updates on new products and upcoming sales.</p>
-            <form action="#" method="post">
-                <input type="email" name="email" placeholder="Enter your email address" required>
-                <button type="submit">Subscribe</button>
-            </form>
+            <div class="container">
+                <h3>Subscribe to Our Newsletter</h3>
+                <p>Get the latest updates on new products and upcoming sales.</p>
+                <form action="#" method="post">
+                    <input type="email" name="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
         </section>
 
     </main>
 
     <footer>
-        <div>
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
+        <div class="container footer-container">
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Info</h4>
+                <p>123 Shopping Lane<br>Commerce City, 12345<br>Email: support@shopease.com</p>
+            </div>
         </div>
-
-        <div>
-            <h4>Follow Us</h4>
-            <a href="#">Facebook</a> |
-            <a href="#">Instagram</a> |
-            <a href="#">Twitter</a>
-        </div>
-        
-        <div>
+        <div class="footer-copyright">
             <p>&copy; 2025 ShopEase. All Rights Reserved.</p>
         </div>
     </footer>
